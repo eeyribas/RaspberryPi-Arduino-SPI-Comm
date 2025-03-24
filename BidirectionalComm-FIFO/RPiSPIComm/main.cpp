@@ -6,26 +6,26 @@
 #include <unistd.h>
 #include <iostream>
 
-using namespace std;
-
-unsigned char SPIRxTx(unsigned char txDat);
+int SPIRxTx(unsigned char tx_data);
 
 int fd;
 unsigned char value = 'a';
 
-int main(int argc, char *argv[])
+int main()
 {
     fd = open("/dev/spidev0.0", O_RDWR);
     unsigned int speed = 4000000;
     ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
 
     while (true) {
-        unsigned char result = SPIRxTx(value);
-        cout << result;
+        int result = SPIRxTx(value);
+        std::cout << result;
     }
+
+    return 0;
 }
 
-unsigned char SPIRxTx(unsigned char tx_data)
+int SPIRxTx(unsigned char tx_data)
 {
     unsigned char rx_data;
     struct spi_ioc_transfer spi;

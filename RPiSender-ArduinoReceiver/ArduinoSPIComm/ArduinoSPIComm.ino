@@ -1,4 +1,4 @@
-uint8_t slave_received;
+uint8_t slave_receiver;
 
 void setup(void) 
 {
@@ -8,6 +8,6 @@ void setup(void)
 
 void loop(void) 
 {
-  slave_received = SPDR;
-  SPDR = slave_received;
+  slave_receiver = SPDR;
+  SPDR = slave_receiver;
 }

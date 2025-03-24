@@ -1,21 +1,33 @@
-# RaspberryPi-Arduino-SPI-Communication
-Includes applications that facilitate SPI communication between Raspberry Pi and Arduino. Data transfers occur between Raspberry Pi and Arduino.
-In the repository, there are four different applications where SPI communication between Raspberry Pi and Arduino takes place. The applications are:
+# RaspberryPi-Arduino-SPI-Comm
+Contains Raspberry Pi and Arduino applications. The purpose of the applications is to perform data transfers between Raspberry Pi and Arduino using SPI communication.
+The repository contains four applications that perform data transfers between Raspberry Pi and Arduino using SPI communication. The applications are as follows:
 
-- BidirectionalCommunication: Arduino and Raspberry Pi send and receive data to and from each other via SPI communication.
+- BidirectionalComm: Arduino and Raspberry Pi send and receive data to and from each other using SPI communication.
 
-- BidirectionalCommunication-FIFO: Arduino and Raspberry Pi send and receive data to and from each other using FIFO logic. To compile the Arduino code, load the "CircularBuffer.zip" library found within the application into the Arduino IDE.
+- BidirectionalComm-FIFO: Arduino and Raspberry Pi send and receive data to and from each other using SPI communication with FIFO logic.
 
-- RaspberryPiReceiver-ArduinoSender: Raspberry Pi receives data from Arduino. Arduino sends data to Raspberry Pi.
+- RPiReceiver-ArduinoSender: Raspberry Pi receives data from Arduino. Arduino sends data to Raspberry Pi.
 
-- RaspberryPiSender-ArduinoReceiver: Raspberry Pi sends data to Arduino. Arduino receives data from Raspberry Pi.
+- RPiSender-ArduinoReceiver: Raspberry Pi sends data to Arduino. Arduino receives data from Raspberry Pi.
 
-Arduino Used: Arduino Uno, Arduino Mega
+RaspberryPi Applications:
 
-Arduino IDE Version: 2.2.0
+- Programming Language: C++ Programming Language
 
-Raspberry Pi Used: RPI3, RPI4
+- Framework: Qt5 - Qt 5.11.3
 
-Raspberry Pi IDE Version: QT IDE
+- IDE: Qt Creator 4.8.2
 
-Arduino - Raspberry Pi Connection Diagram: Connections are made through standard SPI pins.
+- Device: Raspberry Pi-3, Raspberry Pi-4
+
+- Library: To compile the Arduino code in the "BidirectionalCommunication-FIFO" application, you need to load the "CircularBuffer.zip" library into the Arduino IDE.
+
+Arduino Applications:
+
+- Programming Language: C/C++ Programming Language
+
+- IDE: Arduino IDE Version - 2.2.0
+
+- Arduino Used: Arduino Uno
+
+- Arduino Connection Diagram: The Arduino's SPI pins are connected to the Raspberry Pi's SPI pins.

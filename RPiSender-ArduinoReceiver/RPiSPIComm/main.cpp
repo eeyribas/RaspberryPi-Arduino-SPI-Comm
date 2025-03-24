@@ -2,17 +2,15 @@
 #include <sys/ioctl.h>
 #include <linux/spi/spidev.h>
 #include <fcntl.h>
-#include <cstring>
 #include <unistd.h>
 #include <iostream>
+#include <cstring>
 
-using namespace std;
-
-u_int8_t SPIRxTx(u_int8_t txDat);
+u_int8_t SPIRxTx(u_int8_t tx_data);
 
 int fd;
 
-int main(int argc, char *argv[])
+int main()
 {
     fd = open("/dev/spidev0.0", O_RDWR);
     unsigned int speed = 4000000;
@@ -25,7 +23,7 @@ int main(int argc, char *argv[])
         i = 0;
         while (i < (255 * 255)) {
             int result = SPIRxTx(value);
-            cout << result << endl;
+            std::cout << result << std::endl;
             usleep(10);
 
             if (value == 255) {
@@ -36,10 +34,12 @@ int main(int argc, char *argv[])
             }
         }
 
-        cout<< "***********************************************************";
-        cout<< "***********************************************************";
-        cout<< "***********************************************************";
-   }
+        std::cout << "***********************************************************";
+        std::cout << "***********************************************************";
+        std::cout << "***********************************************************";
+    }
+
+    return 0;
 }
 
 u_int8_t SPIRxTx(u_int8_t tx_data)

@@ -1,13 +1,13 @@
 unsigned char data[] = { 'E', 'S', 'N' };
 byte count = 0;
 
-void setup() 
+void setup()
 {
   pinMode(MISO, OUTPUT);
   SPCR |= _BV(SPE);
 }
 
-void loop() 
+void loop()
 {
   if ((SPSR & (1 << SPIF)) != 0) {
     SPDR = data[count];

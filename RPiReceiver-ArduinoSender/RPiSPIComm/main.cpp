@@ -1,17 +1,15 @@
 #include <sys/ioctl.h>
 #include <linux/spi/spidev.h>
 #include <fcntl.h>
-#include <cstring>
 #include <unistd.h>
 #include <iostream>
-
-using namespace std;
+#include <cstring>
 
 int SPITxRx();
 
 int fd;
 
-int main(int argc, char *argv[])
+int main()
 {
     fd = open("/dev/spidev0.0", O_RDWR);
     unsigned int speed = 1000000;
@@ -19,9 +17,11 @@ int main(int argc, char *argv[])
 
     while (true) {
         unsigned char result = SPITxRx();
-        cout << result;
+        std::cout << result;
         usleep(10);
     }
+
+    return 0;
 }
 
 int SPITxRx()
